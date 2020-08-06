@@ -1,0 +1,119 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+<style>
+     .signupbtn {
+         background-color: #008CBA;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+      }
+ 
+      .custom-file-input input[type="file"]{
+        width: 50px;
+        height: 50px;
+        opacity: 0;
+        filter: alpha(opacity=0);
+        zoom: 1;  /* Fix for IE7 */
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 999;
+    }
+
+    .upload-btn-wrapper {
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+    }
+    
+    .btn {
+      border: 2px solid gray;
+      color: gray;
+      background-color: white;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    
+    .upload-btn-wrapper input[type=file] {
+      font-size: 100px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+    }
+    .p1{
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      
+    }
+</style>
+
+
+<script type="text/javascript">
+function fun()
+{
+var file=document.getElementById("fileid").value;
+var x=true;
+var len=file.length-1;
+var path="static/img/dataset/";
+var filename=file.substring(12,file.length);
+document.getElementById("imgdiv").src=path+filename;
+document.getElementById("imgdiv1").src=path+filename;
+}
+
+</script>
+
+<body>
+    <form action="processimg" method="post">
+        {% csrf_token %}
+        <div class="upload-btn-wrapper">
+          <button class="btn">Upload a file</button>
+          <input type="file" name="filename" id="fileid"/>
+        </div>
+        <br>
+        <br>
+
+<!--<input type="file" id="fileid" name="filename"  class="custom-file-input"><br><br>-->
+<input type="button" value="Upload" onclick="fun();" class="signupbtn">
+<!-- <button type="button" onclick="fun();" class="btn btn-primary">upload!!</button> -->
+<br><br>
+
+<center><img src="#" id="imgdiv" style="width:1300px;height:500px;" ></center>
+<br>
+<!-- <button type="submit" class="btn btn-primary">Process</button> -->
+<center><input type="submit" value="process" class="signupbtn" ></center>
+
+
+<br>
+<br>
+<!--<center><input type="submit" value="process" onclick="fun2();" class="signupbtn"></center>-->
+<!--<img src="#" id="imgdiv1" style="width:500px;height:500px;float:right">-->
+</form>
+
+<form action="logoutview" method="POST">
+  {% csrf_token %}
+<div >
+  <button type=submit>LOGOUT</button>
+   
+  </button>
+</div>
+</form>
+</body>
+</html>

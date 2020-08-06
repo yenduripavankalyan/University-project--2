@@ -1,0 +1,18 @@
+<html>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        function outputfunction()
+        {
+            swal("Success", "Processed Image", "static/img/Processedimages/p1.jpg")
+            .then((value) => {
+            if(value)
+            window.location.href="{% url 'processredirect' %}";
+            else
+            outputfunction() ;
+            })
+        }
+    </script>
+    <body onload="outputfunction();"style="bgcolor:cyan;">
+
+        </body>
+</html>

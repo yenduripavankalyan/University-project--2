@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Login Page</title>
+		<link rel="stylesheet" type="text/css" href="static/lp/vendor/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="static/lp/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="static/lp/css/main.css">
+		<script>
+			history.pushState(null, null, location.href);
+			window.onpopstate = function () {
+				history.go(1);
+			};
+		</script>
+	</head>
+	<body>
+		<div class="contact1">
+			<div class="container-contact1">
+				<div class="contact1-pic js-tilt" data-tilt>
+					<img src="static/lp/images/Login/img-01.png" alt="IMG">
+				</div>
+				<form class="contact1-form validate-form" action="loginview" method="POST">
+					{% csrf_token %}
+					<div class="wrap-input1 validate-input" data-validate="Username is required">
+						<input class="input1" type="text" name="username" placeholder="UserName">
+						<span class="shadow-input1">
+						</span>
+					</div>
+					<div class="wrap-input1 validate-input" data-validate="Population is required">
+						<input class="input1" type="password" name="password" placeholder="Password">
+						<span class="shadow-input1">
+						</span>
+					</div>
+					<div class="container-contact1-form-btn">
+						<button class="contact1-form-btn">
+							<span>
+								Login
+							</span>
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<script src="static/lp/vendor/jquery/jquery-3.2.1.min.js">
+		</script>
+		<script src="static/lp/vendor/tilt/tilt.jquery.min.js">
+		</script>
+	</body>
+</html>
